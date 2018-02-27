@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!-- 配置数据库连接参数及连接池 -->
+    <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="username"
+                  value="K_TEST"></property>
+        <property name="password"
+                  value="K_TEST_9"></property>
+        <property name="driverClassName"
+                  value="oracle.jdbc.OracleDriver"></property>
+        <property name="url"
+                  value="jdbc:oracle:thin:@192.168.169.200:1521:orcl"></property>
+    </bean>
+</beans>
+
+
+
+
