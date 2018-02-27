@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <interceptors>
+            <interceptor name="loginInteceptor" class="com.struts.cn.interceptors.LoginInterceptor">
+            </interceptor>
+            <!-- 拦截器栈-->
+            <interceptor-stack name="myInteceptor">
+                <!-- struts默认执行的拦截器 -->
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="loginInteceptor">
+                    <param name="includeMethods">a</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 默认全局拦截器 -->
+        <!--<default-interceptor-ref name="myInteceptor"></default-interceptor-ref>-->
+
+        <action name="ua" class="userAction" method="b">
+            <interceptor-ref name="loginInteceptor"></interceptor-ref>
+            <result name="success">
+                /WEB-INF/msg.jsp
+            </result>
+        </action>
+
+        <action name="uu" class="userAction">
+            <result name="success">
+                /WEB-INF/msg.jsp
+            </result>
+        </action>
+    </package>
+
+
+    <package name="u" namespace="/u" extends="struts-default">
+        <action name="ua" class="userAction">
+            <result name="success">
+                /WEB-INF/msg.jsp
+            </result>
+        </action>
+    </package>
+    <package name="test"
+             namespace="/test"
+             extends="struts-default">
+        <!-- 整合Spring以后，就可以使用spring
+        的Bean id，指定处理类 -->
+        <action name="hello"
+                class="helloAction">
+            <result name="success">
+                /WEB-INF/msg.jsp
+            </result>
+        </action>
+    </package>
+    <package name="result"
+             namespace="/result"
+             extends="struts-default">
+        <action name="hello"
+                class="helloAction">
+            <result name="success">
+                /WEB-INF/msg.jsp
+            </result>
+        </action>
+        <!-- 重定向Action测试 -->
+        <action name="test1">
+            <result type="redirectAction">
+                hello
+            </result>
+        </action>
+        <action name="test3">
+            <result type="redirect">
+                <param name="location">
+                    https://www.baidu.com/
+                </param>
+            </result>
+        </action>
+        <action name="sw"
+                class="switchAction"
+                method="doSwitch">
+            <!-- 默认转发 -->
+            <result name="1">
+                /WEB-INF/msg.jsp
+            </result>
+            <!-- 重定向URL -->
+            <result name="2" type="redirect">
+                https://www.baidu.com/
+            </result>
+            <!-- 重定向Action -->
+            <result name="3" type="redirectAction">
+                hello
+            </result>
+        </action>
+        <action name="image"
+                class="imageAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/png</param>
+                <param name="inputName">image</param>
+            </result>
+        </action>
+    </package>
+    <!-- result类型使用json-->
+    <package name="json"
+             namespace="/json"
+             extends="json-default">
+        <action name="demo" class="jsonAction">
+            <result name="success" type="json">
+            </result>
+        </action>
+    </package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
