@@ -27,6 +27,7 @@
         </action>
 
         <action name="uu" class="userAction">
+            <interceptor-ref name="loginInteceptor"></interceptor-ref>
             <result name="success">
                 /WEB-INF/msg.jsp
             </result>

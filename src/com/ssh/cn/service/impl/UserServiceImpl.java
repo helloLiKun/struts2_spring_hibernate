@@ -18,10 +18,8 @@ public class UserServiceImpl  implements UserService{
     @Resource
     private UserDao userDao;
     public User login(String idNum, String password) {
-        User user
-                =userDao.findByIdNum(idNum);
-        if((user!=null)&&
-                user.getPwd().equals(password)){
+        User user=userDao.findByIdNum(idNum);
+        if((user!=null)&&user.getPwd().equals(password)){
             return user;
         }
         return null;
