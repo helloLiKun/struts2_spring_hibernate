@@ -19,7 +19,7 @@ public class UserAction {
 
     public String execute(){
         System.out.println("---------------execute------------------");
-        List<User> list=userService.getUsers();
+        List<User> list=userService.getUsersByNameAndPage("王五",1,1);
         System.out.println("=============="+list.size()+"||"+list.get(0));
         return "success";
     }

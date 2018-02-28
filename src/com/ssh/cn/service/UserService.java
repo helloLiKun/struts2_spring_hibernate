@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserService {
     User login(String username, String password);
     List<User> getUsers();
+    List<User> getUsersByNameAndPage(String val,int pageIndex,int pageSize);
 }

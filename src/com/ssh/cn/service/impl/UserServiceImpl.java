@@ -29,4 +29,9 @@ public class UserServiceImpl  implements UserService{
     public List<User> getUsers() {
         return userDao.findAll();
     }
+
+    @Override
+    public List<User> getUsersByNameAndPage(String val, int pageIndex, int pageSize) {
+        return userDao.findByPage(val,pageSize,pageIndex);
+    }
 }

@@ -14,4 +14,5 @@ public interface UserDao {
     User findById(String id);
     User findByIdNum(String idNum);
     List<User> findAll();
+    List<User> findByPage(String val,int pageSize,int pageNum);
 }
