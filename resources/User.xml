@@ -3,13 +3,11 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.ssh.cn.entity.User"
-           table="cn_user">
-        <id name="id" column="cn_user_id"
-            type="string"></id>
-        <property name="name"
-                  column="cn_user_name"
-                  type="string"/>
+    <class name="com.ssh.cn.entity.User" table="T_USER">
+        <id name="id" column="id" type="string"></id>
+        <property name="name" column="name" type="string"/>
+        <property name="idNum" column="id_num" type="java.lang.String"/>
+        <property name="pwd" column="pwd" type="string"/>
     </class>
 </hibernate-mapping>
 
